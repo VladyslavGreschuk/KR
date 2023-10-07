@@ -1,0 +1,103 @@
+body {
+    font-family: Gothic, sans-serif;
+    background-color: #CC99FF;
+    margin: 0;
+    height: 100vh;
+}
+
+header {
+    background-color: #af76e9;
+    color: #fff;
+    font-family: 'AR One Sans', sans-serif;
+    padding: 10px 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.container {
+    max-width: 650px;
+    margin: 165px auto;
+    padding: 20px;
+    background-color: #F5F5F5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.but1 {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #af76e9;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.but1:hover {
+    background-color: #8d4acf;
+}
+
+.wrapper {
+height: 93%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.box {
+    background: #F5F5F5;
+    text-align: center;
+    border-radius: 10px;
+    width: 750px;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+    font-size: larger;
+
+}
+
+.but {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 7%;
+    margin-left: 1.5%;
+}
+
+.back {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #F5F5F5;
+}
+
+.back:hover {
+    scale: 0.9;
+    transition: 1.1s;
+    background-color: #8d4acf;
+    cursor: pointer;
+    border-radius : 5px;
+}
