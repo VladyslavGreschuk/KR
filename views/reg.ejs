@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@500&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <h1>Phonebook</h1>
+        </div>
+        <div class="header-right">
+           
+                <a href="/about">
+                    <button class="back">
+                        Про нас
+                    </button>
+                </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Реєстрація</h1>
+        <form action="/reg.html" method="POST">
+            <div id="name-error" class="error-message"></div>
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Електронна пошта:</label>
+            <input type="email" name="email" required>
+
+            <div id="pass-error" class="error-message"></div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div id="pass2-error" class="error-message"></div>
+            <label for="password2">Введіть пароль ще раз:</label>
+            <input type="password" id="password2" name="password2" required>
+            
+            <button class="but1" type="submit" id="submit-button">Зареєструватися</button>
+        </form>
+    </div>
+
+    <script src="/scripts/index.js"></script>
+    <script src="/scripts/valid.js"></script>
+</body>
+</html>
