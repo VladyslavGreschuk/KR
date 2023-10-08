@@ -15,7 +15,11 @@ header {
     align-items: center;
 }
 
-
+.error-message {
+    font-size: 18px;
+    text-align: right;
+    font-family: 'AR One Sans', sans-serif 
+}
 
 .container {
     max-width: 650px;
@@ -44,16 +48,18 @@ input {
     border-radius: 4px;
 }
 
-
 .but1 {
     display: block;
-    width: 100%;
+    width:  250px;
+    max-width: 100%;
     padding: 10px;
     background-color: #af76e9;
     color: #fff;
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
     cursor: pointer;
+    margin-left: auto;
+
 }
 
 .but1:hover {

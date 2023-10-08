@@ -25,6 +25,9 @@ app.post('/reg', function(req, res){
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
+
+    const cyrillicPattern = /[а-яА-ЯёЁ]/;
+
     res.send('Ви успішно зареєструвались!');
     connection.query(
          'INSERT INTO test (name, email, password) VALUES (?, ?, ?)',
