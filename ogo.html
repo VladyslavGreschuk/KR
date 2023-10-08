@@ -2,13 +2,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@500&display=swap" rel="stylesheet">
 
-    <title>Реєстрація</title>
+    <script src="registration.js"></script>
+    <script src="index.js"></script>
     
 </head>
 
@@ -30,19 +32,19 @@
 
     <div class="container">
         <h1>Реєстрація</h1>
-        <form action="..." method="POST">
-            <label for="ім'я">Ім'я:</label>
-            <input type="text" id="ім'я" name="ім'я" required>
+        <form action="/reg" method="POST">
+            <label for="name">Ім'я:</label>
+            <input type="text" name="name" required>
 
-            <label for="пошта">Електронна пошта:</label>
-            <input type="email" id="пошта" name="пошта" required>
+            <label for="email">Електронна пошта:</label>
+            <input type="email" name="email" required>
 
-            <label for="пароль">Пароль:</label>
+            <label for="password">Пароль:</label>
 
-            <input type="password" id="пароль" name="пароль" required>
+            <input type="password" name="password" required>
 
-            <label for="пароль2">Введіть пароль ще раз:</label>
-            <input type="password">
+            <label for="password2">Введіть пароль ще раз:</label>
+            <input type="password" name="password2" required>
             
             <button class="but1" type="submit">Зареєструватися</button>
         </form>
