@@ -20,9 +20,35 @@ connection.connect(function(err) {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/reg', function(req, res){
+app.set('view engine', 'ejs');
+
+app.get('/reg', function (req, res) {
+    res.render('reg');
+});
+
+app.get('/style/style.css', function (req, res) {
+    res.sendFile(__dirname + '/public/style/style.css');
+});
+
+app.get('/style/forinput.css', function (req,res) {
+    res.sendFile(__dirname + '/public/style/forinput.css');
+});
+
+app.get('/scripts/valid.js', function (req, res) {
+    res.sendFile(__dirname + '/scripts/valid.js')
+});
+
+app.get('/scripts/scroll.js', function (req,res) {
+    res.sendFile(__dirname + '/scripts/scroll.js');
+});
+
+app.get('/about', function (req, res) {
+    res.render('about');
+});
+
+app.post('/sign', function(req, res){
     console.log('success');
-    const name = req.body.name;
+    const nickname = req.body.nickname;
     const email = req.body.email;
     const password = req.body.password;
 
@@ -31,7 +57,7 @@ app.post('/reg', function(req, res){
     res.send('Ви успішно зареєструвались!');
     connection.query(
          'INSERT INTO test (name, email, password) VALUES (?, ?, ?)',
-         [name, email, password],
+         [nickname, email, password],
          (err, results) => {
              if (err) {
                  console.error('Помилка під час збереження даних користувача:', err);
@@ -44,6 +70,6 @@ app.post('/reg', function(req, res){
      );
 });
 
-app.listen(8080, () => {
-    console.log('Сервер запущено на порту 8080');
+app.listen(3000, () => {
+    console.log('Сервер запущено на порту 3000');
 });

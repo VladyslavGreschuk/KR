@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const nameInput = document.getElementById('name');
+    const nameInput = document.getElementById('nickname');
     const errorMessage = document.getElementById('name-error');
     const submitButton = document.querySelector('.but1');
 
     const passError = document.getElementById('pass-error');
-    const passError2 = document.getElementById('pass2-error');
     const passwordInput = document.getElementById('password');
     const password2Input = document.getElementById('password2');
 
@@ -15,16 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cyrillicPattern.test(inputValue)) {
             errorMessage.textContent = 'Використовуйте англійські літери!';
             nameInput.classList.add('error');
+            nameInput.classList.remove('success');
             submitButton.disabled = true;
         } else if (nameLength < 4 || nameLength > 15)
         {
             errorMessage.textContent = 'Ім\'я повинно містити від 4 до 15 символів!';
             nameInput.classList.add('error');
+            nameInput.classList.remove('success');
             submitButton.disabled = true;
         } else
         {
             errorMessage.textContent = '';
             nameInput.classList.remove('error');
+            nameInput.classList.add('success');
             submitButton.disabled = false;
         }
     });
@@ -40,21 +42,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (passLength < 4 || passLength > 25)
         {
             passError.textContent = 'Пароль надто короткий!';
-            nameInput.classList.add('error');
+            passwordInput.classList.add('error');
+            passwordInput.classList.remove('success');
+            password2Input.classList.remove('success');
             submitButton.disabled = true;
         } else if (passwordValue !== password2Value)
         {
-            passError2.textContent = 'Паролі не співпадають!';
-            passError.textContent = '';
+            passError.textContent = 'Паролі не співпадають!';
             passwordInput.classList.add('error');
             password2Input.classList.add('error');
+            passwordInput.classList.remove('success');
+            password2Input.classList.remove('success');
             submitButton.disabled = true;
         } else
         {
             passError.textContent = '';
-            passError2.textContent = '';
             passwordInput.classList.remove('error');
             password2Input.classList.remove('error');
+            passwordInput.classList.add('success');
+            password2Input.classList.add('success');
             submitButton.disabled = false;
         }
     }

@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/forinput.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@500&display=swap" rel="stylesheet">
-    
 </head>
 
-<body>
+<body class="main">
 
     <header>
         <div class="header-left">
@@ -27,9 +27,43 @@
         </div>
     </header>
 
+    <div class="texting">
+            <p>Вітаємо Вас на сайті веб-застосунку <strong>Phonebook</strong>!</p>
+            <p><strong>Phonebook</strong> - це веб-застосунок для зберігання контактів та іншої доступної<br>інформації про друзів та знайомих.</p>
+            <p>Будь ласка, зареєструйтеся, якщо хочете отримати можливість<br>користуватися клієнтським інтерфейсом даної програми.</p>
+    </div>
+
     <div class="container">
         <h1>Реєстрація</h1>
-        <form action="/reg.html" method="POST" class="regform">
+        <form action="/sign" method="POST" class="regform">
+            <div id="name-error" class="error-message"></div>
+            <div class="input-group">
+                <input type="text" id="nickname" name="nickname" required placeholder="- ваш нікнейм -">
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="name" name="name" required placeholder="- ваше ім'я -">
+                <input type="text" id="surname" name="surname" required placeholder="- ваше прізвище -">
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" required placeholder="- ваша ел. пошта -">
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="number" name="number" required placeholder="- ваш номер телефону -">
+            </div>
+            <div id="pass-error" class="error-message"></div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required placeholder="- введіть пароль -">
+                <input type="password" id="password2" name="password2" required placeholder="- підтвердіть пароль -">
+            </div>
+    
+            <button class="but1" type="submit" id="submit-button">Зареєструватися</button>
+        </form>
+    </div>
+    <!-- <div class="container">
+        <h1>Реєстрація</h1>
+        <form action="/sign" method="POST" class="regform">
             <div id="name-error" class="error-message"></div>
             <label for="name">Ім'я:</label>
             <input type="text" id="name" name="name" required>
@@ -45,11 +79,18 @@
             <label for="password2">Введіть пароль ще раз:</label>
             <input type="password" id="password2" name="password2" required>
             
+            <label for="nname">Ім'я:</label>
+            <input type="text" id="nname" name="nname" required>
+
+            <label for="surname">Прізвище:</label>
+            <input type="text" id="surname" name="surname" required>
+
             <button class="but1" type="submit" id="submit-button">Зареєструватися</button>
         </form>
-    </div>
+    </div> -->
 
     <script src="/scripts/index.js"></script>
     <script src="/scripts/valid.js"></script>
+    <script src="/scripts/scroll.js"></script>
 </body>
 </html>

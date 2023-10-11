@@ -1,9 +1,29 @@
 body {
     font-family: Gothic, sans-serif;
     background-color: #CC99FF;
-    margin: 0 auto;
     height: 100vh;
-} 
+    margin: 0 auto;
+}
+
+.input-group {
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-group input {
+    flex: 2;
+    margin-left: 3px;
+    margin-right:3px;
+}
+
+.main {
+    font-family: Gothic, sans-serif;
+    background-color: #CC99FF;
+    height: 100vh;
+    margin: 0 auto;
+}
 
 header {
     background-color: #af76e9;
@@ -16,20 +36,25 @@ header {
 }
 
 .error-message {
-    font-size: 18px;
-    text-align: right;
+    margin-left: 3px;
+    font-size: 15px;
+    text-align: left;
     color: rgb(197, 81, 81);
     font-family: 'AR One Sans', sans-serif 
 }
 
 .container {
-    max-width: 300px;
-    margin: 135px auto;
+    max-width: 325px;
+    top: 150;
     padding: 15px;
+    position: fixed;
+    right: -100px;
     background-color: #F5F5F5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-right: 250px;
+    overflow-x: auto;
+    align-items: center;
 }
 
 h1 {
@@ -50,6 +75,10 @@ input {
     border-radius: 4px;
 }
 
+input::placeholder {
+    text-align: left;
+
+}
 .but1 {
     display: block;
     width:  250px;
@@ -120,4 +149,16 @@ align-items: center;
     background-color: #8d4acf;
     cursor: pointer;
     border-radius : 5px;
+}
+
+.texting {
+    color: #F5F5F5;
+    text-align: left;
+    width: 1000px;
+    position:fixed;
+    left:65px;
+    top:150;
+    font-size: 25px;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
 }
