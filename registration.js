@@ -26,6 +26,18 @@ app.get('/reg', function (req, res) {
     res.render('reg');
 });
 
+app.get('/phonebook', function (req, res) {
+    res.render('phonebook');
+});
+
+app.get('/about', function (req, res) {
+    res.render('about');
+});
+
+app.get('/list', function (req, res) {
+    res.render('list');
+});
+
 app.get('/style/style.css', function (req, res) {
     res.sendFile(__dirname + '/public/style/style.css');
 });
@@ -42,22 +54,19 @@ app.get('/scripts/scroll.js', function (req,res) {
     res.sendFile(__dirname + '/scripts/scroll.js');
 });
 
-app.get('/about', function (req, res) {
-    res.render('about');
-});
-
-app.post('/sign', function(req, res){
+app.post('/phonebook', function(req, res){
     console.log('success');
     const nickname = req.body.nickname;
+    const name = req.body.name;
+    const surname = req.body.surname;
     const email = req.body.email;
+    const number = req.body.number;
     const password = req.body.password;
 
-    const cyrillicPattern = /[а-яА-ЯёЁ]/;
-
-    res.send('Ви успішно зареєструвались!');
+    console.log(name);
     connection.query(
-         'INSERT INTO test (name, email, password) VALUES (?, ?, ?)',
-         [nickname, email, password],
+         'INSERT INTO users (nickname, name, surname, email, number,  password) VALUES (?, ?, ?, ?, ?, ?)',
+         [nickname, name, surname, email, number, password],
          (err, results) => {
              if (err) {
                  console.error('Помилка під час збереження даних користувача:', err);

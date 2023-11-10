@@ -7,13 +7,36 @@
     <title>Document</title>
 </head>
 <body>
+
+    <header>
+        <div class="header-left">
+            <a href="/phonebook">
+                <button class="logo-button">
+                    Phonebook
+                </button>
+            </a>
+        </div>
+        <div class="header-right">
+           
+                <a href="/about">
+                    <button class="head-button">
+                        Про нас
+                    </button>
+                </a>
+        </div>
+    </header>
+
     <div class="but">
-        <a href="/reg">
-            <button class="back">
-            Назад
-            </button>
-        </a>
+        <button class="back" onclick="goBack()">
+        Назад
+        </button>
     </div>  
+    
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 
     <div class="gitdiv">
         <a href="https://github.com/VladyslavGreschuk/KR">

@@ -1,4 +1,7 @@
+<!DOCTYPE html>
+<meta charset = "UTF-8">
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,12 +18,16 @@
 
     <header>
         <div class="header-left">
-            <h1>Phonebook</h1>
+            <a href="/phonebook">
+                <button class="logo-button">
+                    Phonebook
+                </button>
+            </a>
         </div>
         <div class="header-right">
            
                 <a href="/about">
-                    <button class="back">
+                    <button class="head-button">
                         Про нас
                     </button>
                 </a>
@@ -35,7 +42,7 @@
 
     <div class="container">
         <h1>Реєстрація</h1>
-        <form action="/sign" method="POST" class="regform">
+        <form action="/phonebook" method="POST" class="regform">
             <div id="name-error" class="error-message"></div>
             <div class="input-group">
                 <input type="text" id="nickname" name="nickname" required placeholder="- ваш нікнейм -">

@@ -1,6 +1,6 @@
 body {
     font-family: Gothic, sans-serif;
-    background-color: #CC99FF;
+    background-color:  #4c76d1; /* #CC99FF */
     height: 100vh;
     margin: 0 auto;
 }
@@ -20,19 +20,24 @@ body {
 
 .main {
     font-family: Gothic, sans-serif;
-    background-color: #CC99FF;
+    background-color:  #4c76d1; /* #CC99FF */
     height: 100vh;
     margin: 0 auto;
 }
 
 header {
-    background-color: #af76e9;
+    background-color: #2e54a7; /* #af76e9 */
     color: #fff;
     font-family: 'AR One Sans', sans-serif;
-    padding: 10px 65px;
+    padding: 0px 65px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px;
+}
+
+.header-left {
+    font-size: 15px;
 }
 
 .error-message {
@@ -45,7 +50,7 @@ header {
 
 .container {
     max-width: 325px;
-    top: 150;
+    top: 150px;
     padding: 15px;
     position: fixed;
     right: -100px;
@@ -79,12 +84,13 @@ input::placeholder {
     text-align: left;
 
 }
+
 .but1 {
     display: block;
     width:  250px;
     max-width: 100%;
     padding: 10px;
-    background-color: #af76e9;
+    background-color: #2e54a7; /* #af76e9 */
     color: #fff;
     border: none;
     border-radius: 12px;
@@ -94,13 +100,13 @@ input::placeholder {
 }
 
 .but1:hover {
-    background-color: #8d4acf;
+    background-color: #203d7e; /* #8d4acf */
 }
 
 .gitdiv {
     position: fixed;
-    top: 85px;
-    left: 15px;
+    top: 195px;
+    left: 65px;
 }
 
 .wrapper {
@@ -131,8 +137,35 @@ align-items: center;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    top: 25px;
-    left: 15px;
+    top: 115px;
+    left: 65px;
+}
+
+
+.head-button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #F5F5F5;
+    /* margin-left: 10px; */
+}
+
+.head-button:hover {
+    scale: 0.9;
+    transition: 1.1s;
+    background-color: #203d7e; /* #8d4acf */
+    cursor: pointer;
+    border-radius : 5px;
+} 
+
+
+.logo-button {
+    border: none;
+    background: none;
+    font-size: 30px;
+    font-weight: 700;
+    color: #F5F5F5;  
 }
 
 .back {
@@ -146,7 +179,7 @@ align-items: center;
 .back:hover {
     scale: 0.9;
     transition: 1.1s;
-    background-color: #8d4acf;
+    background-color: #203d7e; /* #8d4acf */
     cursor: pointer;
     border-radius : 5px;
 }
@@ -157,8 +190,60 @@ align-items: center;
     width: 1000px;
     position:fixed;
     left:65px;
-    top:150;
+    top:150px;
     font-size: 25px;
     font-family: 'AR One Sans', sans-serif;
     font-weight: 400;
+}
+
+.options-container {
+    background-color: #dadada;
+    padding: 20px;
+    padding-left: 65px;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: 100vh;
+    width: 335px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box; /* Додаємо цей стиль */
+}
+
+.option-button {
+    margin-bottom: 25px;
+    margin-top: 25px;
+    font-size: 21.7px;
+    border: none;
+    background: none;
+    text-align: left;
+    left: 100px;
+}
+
+.contacts-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    width: 30%; /* Ширина таблиці */
+    border-collapse: collapse; /* Злиття рамок */
+    margin-top: 20px; /* Відступ зверху */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd; /* Рамка */
+}
+
+th {
+    background-color: #f2f2f2; /* Колір фону заголовків стовпців */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Колір фону рядків з парним номером */
 }
