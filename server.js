@@ -1,12 +1,17 @@
 const express = require('express');
 const response = require('./response');
 const app = express();
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const usersController = require('./controller/usersController');
+const passport = require('passport');
 
-
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize());
+require('./middleware/passport')(passport);
+
 
 app.set('view engine', 'ejs');
 
@@ -18,9 +23,9 @@ app.get('/login', function (req, res) {
     res.render('login');
 });
 
-app.get('/phonebook', function (req, res) {
-    res.render('phonebook');
-});
+// app.get('/phonebook', function (req, res) {
+//     res.render('phonebook');
+// });
 
 app.get('/about', function (req, res) {
     res.render('about');
@@ -46,11 +51,13 @@ app.get('/scripts/scroll.js', function (req,res) {
     res.sendFile(__dirname + '/scripts/scroll.js');
 });
 
+app.route('/phonebook').get(usersController.settoken, passport.authenticate('jwt', {session: false}));
+
 app.route('/reg').post(usersController.signup);
 
-app.route('/userslist').get(usersController.showUsers);
+app.route('/userslist').get(passport.authenticate('jwt', {session: false}), usersController.showUsers);
 
-app.route('/log').post(usersController.login);
+app.route('/login').post(usersController.login);
 
 app.listen(3000, () => {
     console.log('Сервер запущено на порту 3000');
