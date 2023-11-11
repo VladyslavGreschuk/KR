@@ -247,3 +247,38 @@ th {
 tr:nth-child(even) {
     background-color: #f9f9f9; /* Колір фону рядків з парним номером */
 }
+
+.regdiv {
+    display: flex;
+    margin-top: 410px;
+    margin-left: 1497px;
+    text-decoration: none;
+}
+
+.regp {
+    top: 1500px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.regp a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.regp a:hover {
+    text-decoration: underline;
+}
+
+.regp a:visited {
+    color: inherit;
+}
+
+.regp a:active {
+    color: inherit;
+}

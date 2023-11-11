@@ -37,40 +37,35 @@
     <div class="texting">
             <p>Вітаємо Вас на сайті веб-застосунку <strong>Phonebook</strong>!</p>
             <p><strong>Phonebook</strong> - це веб-застосунок для зберігання контактів та іншої доступної<br>інформації про друзів та знайомих.</p>
-            <p>Будь ласка, зареєструйтеся, якщо хочете отримати можливість<br>користуватися клієнтським інтерфейсом даної програми.</p>
+            <p>Будь ласка, авторизуйтеся, якщо хочете отримати можливість<br>користуватися клієнтським інтерфейсом даної програми.</p>
     </div>
 
     <div class="container">
-        <h1>Реєстрація</h1>
-        <form action="/reg" method="POST" class="regform">
+        <h1>Авторизація</h1>
+        <form action="/log" method="POST" class="logform">
             <div id="name-error" class="error-message"></div>
             <div class="input-group">
                 <input type="text" id="nickname" name="nickname" required placeholder="- ваш нікнейм -">
             </div>
             
             <div class="input-group">
-                <input type="text" id="name" name="name" required placeholder="- ваше ім'я -">
-                <input type="text" id="surname" name="surname" required placeholder="- ваше прізвище -">
-            </div>
-            <div class="input-group">
                 <input type="email" name="email" required placeholder="- ваша ел. пошта -">
             </div>
 
-            <div class="input-group">
-                <input type="text" id="number" name="number" required placeholder="- ваш номер телефону -">
-            </div>
             <div id="pass-error" class="error-message"></div>
             <div class="input-group">
                 <input type="password" id="password" name="password" required placeholder="- введіть пароль -">
-                <input type="password" id="password2" name="password2" required placeholder="- підтвердіть пароль -">
             </div>
     
-            <button class="but1" type="submit" id="submit-button">Зареєструватися</button>
+            <button class="but1" type="submit" id="submit-button">Увійти</button>
         </form>
     </div>
 
+    <div class="regdiv">
+        <p class="regp">Ви тут уперше? - <a href="/reg">Зареєеструйтеся</a> </p>
+    </div>
+
     <script src="/scripts/index.js"></script>
-    <script src="/scripts/valid.js"></script>
     <script src="/scripts/scroll.js"></script>
 </body>
 </html>
