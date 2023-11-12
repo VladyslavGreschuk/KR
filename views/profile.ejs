@@ -42,9 +42,33 @@
     </div>
 
     <div class="hellodiv">
-        <p class="hello">Ви успішно авторизувались як: <%= name %> <%= surname %>.<br><br>
-            Вітаємо Вас на головній сторінці Phonebook.</p>
+        <p class="hello">Профіль користувача <%= username %>. </p>
     </div>
+
+
+    <table class="profiletable">
+        <tr>
+            <td>Нікнейм</td>
+            <td><%= username %></td>
+        </tr>
+        <tr>
+            <td>Ім'я</td>
+            <td><%= name %></td>
+        </tr>
+        <tr>
+            <td>Прізвище</td>
+            <td><%= surname %></td>
+        </tr>
+        <tr>
+            <td>Електронна пошта</td>
+            <td><%= email %></td>
+        </tr>
+        <tr>
+            <td>Номер телефону</td>
+            <td><%= number %></td>
+        </tr>
+    </table>
+
 
 
 </body>

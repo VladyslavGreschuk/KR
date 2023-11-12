@@ -35,6 +35,16 @@ exports.signup = (req, res) => {
     );
 }
 
+exports.setTokenHeader = (req, res, next) => {
+    if (req.cookies.Authorization) {
+        const token = req.cookies.Authorization;
+        res.setHeader('Authorization', `Bearer ${token}`);
+    } else {
+        response.status(401, `Cannot get token!`, res);
+    }
+    next();
+}
+
 exports.login = (req, res) => {
     db.query("SELECT `id`, `email`, `password`, `nickname` FROM `users` WHERE `email` = '" + req.body.email + "' AND `nickname` = '" + req.body.nickname + "'", (error, rows, fields) => {
         if(error) {
@@ -51,7 +61,8 @@ exports.login = (req, res) => {
                         userId: rw.id,
                         email: rw.email
                     }, config.jwt, { expiresIn: 120 * 120 });
-                    res.cookie('Authorization', `Bearer ${token}`);
+                    res.cookie('Authorization', `${token}`);
+
                     res.redirect('/phonebook');
                 } else {
                     response.status(401, `Incorrect password!`, res);
@@ -62,30 +73,6 @@ exports.login = (req, res) => {
     }
     )
 }
-
-exports.settoken = (req, res) => {
-    console.log(req.cookies)
-    if (req.cookies && req.cookies.Authorization) {
-        // Отримання токену з cookies
-        const token = req.cookies.Authorization;
-
-        // Верифікація токену
-        jwt.verify(token.replace('Bearer ', ''), config.jwt, (err, decoded) => {
-            if (err) {
-                res.status(401).send('Unauthorized');
-                return;
-            }
-
-            // decoded містить розшифровану інформацію з токену
-            console.log(decoded);
-            res.setHeader('Authorization', `${token}`);
-            res.redirect("/phonebook");
-        });
-    } else {
-        // Якщо cookies або Authorization властивість відсутні, поверніть 401 Unauthorized
-        res.status(401).send('Unauthorized');
-    }
-};
 
 exports.showUsers = (req, res) => {
     db.query('SELECT * FROM users', (error, rows, fields) => {

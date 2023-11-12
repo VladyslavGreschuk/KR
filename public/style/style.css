@@ -209,11 +209,12 @@ align-items: center;
     flex-direction: column;
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.12);
     box-sizing: border-box; /* Додаємо цей стиль */
+    overflow: auto;
 }
 
 .option-button {
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin-bottom: 35px;
+    margin-top: 35px;
     font-size: 21.7px;
     border: none;
     background: none;
@@ -229,23 +230,32 @@ align-items: center;
 }
 
 table {
-    width: 30%; /* Ширина таблиці */
-    border-collapse: collapse; /* Злиття рамок */
-    margin-top: 20px; /* Відступ зверху */
+    width: 30%;
+    border-collapse: separate;
+    border-spacing: 5px 5px;
+
 }
 
 th, td {
-    padding: 12px;
+    border: none;
+    padding: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: left;
-    border: 1px solid #ddd; /* Рамка */
+    border-radius: 12px;
 }
 
 th {
-    background-color: #f2f2f2; /* Колір фону заголовків стовпців */
+    background-color: #dadada;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9; /* Колір фону рядків з парним номером */
+td {
+    background-color: #dadada;
+
+}
+/* Необов'язково: стилізація для першого стовпчика (наприклад, назва властивості) */
+td:first-child {
+    font-weight: bold;
 }
 
 .regdiv {
@@ -281,4 +291,33 @@ a {
 
 .regp a:active {
     color: inherit;
+}
+
+.hellodiv {
+    text-align: center;
+    top: 400px;
+}
+
+.hello {
+    color: #F5F5F5;
+    text-align: left;
+    width: 60%;
+    position: fixed;
+    font-size: 40px;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+    top: 110px;
+    margin-left: 500px;
+}
+
+
+.profiletable {
+    position: fixed;
+    margin-top: 20px;
+    top: 280px;
+    left: 430px;
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
 }
