@@ -73,7 +73,7 @@ app.route('/phonebook/profile').get(usersController.setTokenHeader, passport.aut
 });
 
 app.route('/phonebook/list').get(usersController.setTokenHeader, passport.authenticate('jwt', {session: false}), function (req, res) {
-    res.render('list');
+    res.render('list', {contacts: req.user.contacts, contactCount: req.user.contactCount, id: req.user.id});
 });
 
 app.route('/phonebook/adding').get(usersController.setTokenHeader, passport.authenticate('jwt', {session: false}), function (req, res) {
@@ -84,7 +84,7 @@ app.route('/userslist').get(passport.authenticate('jwt', {session: false}), user
 
 app.route('/contactslist').get(passport.authenticate('jwt', {session: false}), contactsController.showContacts);
 
-app.route('/deletecontact').delete(passport.authenticate('jwt', {session: false}), contactsController.deleteContact);
+app.route('/deletecontact/:id/:user_id').delete(passport.authenticate('jwt', {session: false}), contactsController.deleteContact);
 //
 
 app.listen(3000, () => {

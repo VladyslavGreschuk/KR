@@ -37,7 +37,7 @@
     </header>
 
     <div class="options-container">
-        <a href="/phonebook"><button class="option-button">Домашня сторінка</button></a>
+        <a href="/phonebook"><button class="option-button">Головна</button></a>
         <a href="/phonebook/profile"><button class="option-button">Профіль</button></a>
         <a href="/phonebook/list"><button class="option-button">Список контактів</button></a>
         <a href="/phonebook/adding"><button class="option-button">Додати контакт</button></a>
@@ -48,7 +48,6 @@
 
 
     <div class="profile-div">
-    <div>
     <table class="table-profile">
         <thead>
             <tr>
@@ -85,6 +84,10 @@
             <td class="wtd"><%= role %></td>
         </tr>
     </table>
+
+    <div class="profilee-div">
+        <p class="contacts-count-p">Ви можете редагувати профіль у розділі "Налаштування"</p>
+        <p class="contacts-count-p">Ви увійшли як <%= (role === "ADMIN") ? "адміністратор" : "звичайний користувач" %></p>
     </div>
     </div>
 

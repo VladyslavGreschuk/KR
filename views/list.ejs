@@ -38,7 +38,7 @@
     </header>
 
     <div class="options-container">
-        <a href="/phonebook"><button class="option-button">Домашня сторінка</button></a>
+        <a href="/phonebook"><button class="option-button">Головна</button></a>
         <a href="/phonebook/profile"><button class="option-button">Профіль</button></a>
         <a href="/phonebook/list"><button class="option-button">Список контактів</button></a>
         <a href="/phonebook/adding"><button class="option-button">Додати контакт</button></a>
@@ -47,6 +47,26 @@
     </div>
 
     <div class="contacts-table">
+
+        <script>
+            function deleteContact(id, userId) {
+                if (!id || !userId) {
+                    console.error('Incorrect id or userId');
+                    return;
+                }
+            
+                fetch(`/deletecontact/${id}/${userId}`, {
+                    method: 'DELETE',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Додайте код обробки видалення, якщо потрібно
+                })
+                .catch(error => console.error('Помилка:', error));
+            }
+        </script>
+
         <table class="table-contacts">
             <thead>
                 <tr>
@@ -54,28 +74,45 @@
                     <th>Ім'я</th>
                     <th>Прізвище</th>
                     <th>Email</th>
+                    <th>Номер</th>
                     <th>Дата</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-@example.com</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-@example.com</td>
-                    <td>-</td>
-                </tr>
+                <% contacts.forEach(contact => { %>
+                    <tr>
+                        <td><%= contact.id %></td>
+                        <td><%= contact.name %></td>
+                        <td><%= contact.surname %></td>
+                        <td><%= contact.email %></td>
+                        <td><%= contact.number %></td>
+                        <td><%= contact.formattedDate %></td>
+                        <td>
+                            <form action="/edit" method="POST" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= contact.id %>">
+                                <input type="hidden" name="user_id" value="<%= id %>">
+                                <button class="table-button" type="submit">edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form class="deleteForm" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= contact.id %>">
+                                <input type="hidden" name="user_id" value="<%= id %>">
+                                <button class="table-button" type="button" onclick="deleteContact('<%= contact.id %>', '<%= id %>')">delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
             </tbody>
         </table>
-    </div>
 
+        <!-- <div class="contacts-count">
+            <p class="contacts-count-p">Контактів нараховано: <%= contactCount %></p>
+            <p class="contacts-count-p">Ви можете додати новий контакт у розділі "Додати контакт"</p>
+        </div> -->
+    </div>
 
 </body>
 </html>

@@ -29,10 +29,27 @@ module.exports = passport => {
                     } else {
                         const user = rows[0];
                         if (user) {
-                            done(null, user);
-                        } else {
-                            done(null, false);
-                        }
+                            db.query("SELECT *, DATE_FORMAT(`date`, '%Y-%m-%d') AS formattedDate FROM contacts WHERE `user_id` = '" + user.id + "'", (contactError, contactRows, contactFields) => {
+                                if (contactError) {
+                                    console.log(contactError);
+                                    done(contactError, null);
+                                } else {
+                                    // Додаємо інформацію про контакти до об'єкту користувача
+                                    user.contacts = contactRows;
+
+                                    db.query("SELECT COUNT(*) AS contactCount FROM contacts WHERE `user_id` = '" + user.id + "'", (contactError, result) => {
+                                        if (contactError) {
+                                            console.log(contactError);
+                                            done(contactError, null);
+                                        } else {
+                                            const contactCount = result[0].contactCount;
+                                            user.contactCount = contactCount;
+                                            done(null, user);
+                                        }
+                                    })
+                                }
+
+                            })}
                     }
                 });
             } catch (e) {
