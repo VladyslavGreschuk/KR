@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css">
-    <title>List</title>
+    <title>Adding Contact</title>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
                     </button>
                 </a>
 
-                <a href="/login">
+                <a href="/logout">
                     <button class="head-button">
                         Вийти
                     </button>
@@ -46,34 +46,32 @@
 
     </div>
 
-    <div class="contacts-table">
-        <table class="table-contacts">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Ім'я</th>
-                    <th>Прізвище</th>
-                    <th>Email</th>
-                    <th>Дата</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-@example.com</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-@example.com</td>
-                    <td>-</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container">
+        <h1>Додати новий контакт</h1>
+        <form action="/phonebook/adding" method="POST" class="regform">
+
+            <div id="name-error" class="error-message"></div>
+            <input type="hidden" id="user_id" name="user_id" value=<%= id %>>
+            <div class="input-group">
+                <input type="text" id="name" name="name" required placeholder="- ім'я -">
+                <input type="text" id="surname" name="surname" required placeholder="- прізвище -">
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="number" name="number" required placeholder="- номер телефону -">
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" required placeholder="- ел. пошта (не обов'язково) -">
+            </div>
+
+            <div id="pass-error" class="error-message"></div>
+    
+            <button class="but1" type="submit" id="submit-button">Додати контакт</button>
+        </form>
+    </div>
+
+    <div class="hellodiv">
     </div>
 
 

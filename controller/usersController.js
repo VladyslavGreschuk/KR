@@ -1,8 +1,8 @@
-const response = require('../response');
+const response = require('../settings/response');
 const db = require('../settings/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('../config');
+const config = require('../settings/config');
 const cookieParser = require('cookie-parser');
 
 exports.signup = (req, res) => {
@@ -18,8 +18,8 @@ exports.signup = (req, res) => {
             const salt = bcrypt.genSaltSync(15);
             const pass = bcrypt.hashSync(req.body.password, salt)
             db.query(
-                'INSERT INTO users (nickname, name, surname, email, number,  password) VALUES (?, ?, ?, ?, ?, ?)',
-                [req.body.nickname, req.body.name, req.body.surname, req.body.email, req.body.number, pass],
+                'INSERT INTO users (nickname, name, surname, email, number, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)',
+                [req.body.nickname, req.body.name, req.body.surname, req.body.email, req.body.number, pass, req.body.role],
                 (err, results) => {
                     if (err) {
                         console.error('Помилка під час збереження даних користувача:', err);

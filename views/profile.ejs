@@ -17,7 +17,11 @@
             </a>
         </div>
         <div class="header-right">
-           
+                <a href="/adminpanel">
+                     <button class="head-button">
+                         Admin Panel
+                     </button>
+                 </a>   
                 <a href="/about">
                     <button class="head-button">
                         Про нас
@@ -41,33 +45,48 @@
 
     </div>
 
-    <div class="hellodiv">
-        <p class="hello">Профіль користувача <%= username %>. </p>
-    </div>
 
 
-    <table class="profiletable">
+    <div class="profile-div">
+    <div>
+    <table class="table-profile">
+        <thead>
+            <tr>
+                <th>Профіль користувача <%= username %> </th>
+                <th></th>
+            </tr>
+        </thead>
         <tr>
-            <td>Нікнейм</td>
-            <td><%= username %></td>
+            <td>Нікнейм:</td>
+            <td class="wtd"><%= username %></td>
         </tr>
         <tr>
-            <td>Ім'я</td>
-            <td><%= name %></td>
+            <td>Ім'я:</td>
+            <td class="wtd"><%= name %></td>
         </tr>
         <tr>
-            <td>Прізвище</td>
-            <td><%= surname %></td>
+            <td>Прізвище:</td>
+            <td class="wtd"><%= surname %></td>
         </tr>
         <tr>
-            <td>Електронна пошта</td>
-            <td><%= email %></td>
+            <td>Електронна пошта:</td>
+            <td class="wtd"><%= email %></td>
         </tr>
         <tr>
-            <td>Номер телефону</td>
-            <td><%= number %></td>
+            <td>Номер телефону:</td>
+            <td class="wtd"><%= number %></td>
+        </tr>
+        <tr>
+            <td>ID:</td>
+            <td class="wtd"><%= id %></td>
+        </tr>
+        <tr>
+            <td>Role:</td>
+            <td class="wtd"><%= role %></td>
         </tr>
     </table>
+    </div>
+    </div>
 
 
 

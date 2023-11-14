@@ -29,11 +29,12 @@ header {
     background-color: #2e54a7; /* #af76e9 */
     color: #fff;
     font-family: 'AR One Sans', sans-serif;
-    padding: 0px 65px;
+    padding: 0 77px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 }
 
 .header-left {
@@ -197,9 +198,9 @@ align-items: center;
 }
 
 .options-container {
-    background-color: #dadada;
-    padding: 20px;
-    padding-left: 65px;
+    background-color: #6c92dd;/* #dadada; */
+    padding: 0;
+    padding-left: 0;
     position: fixed;
     top: 70px;
     left: 0;
@@ -210,53 +211,123 @@ align-items: center;
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.12);
     box-sizing: border-box; /* Додаємо цей стиль */
     overflow: auto;
+    justify-content: left;
+    align-items: center;
 }
 
 .option-button {
-    margin-bottom: 35px;
-    margin-top: 35px;
-    font-size: 21.7px;
+    margin-bottom: -15px;
+    margin-top: 50px;
+    font-size: 1.5em;
     border: none;
-    background: none;
-    text-align: left;
-    left: 100px;
+    background: #2e54a7;
+    border-radius: 5px;
+    text-align: center;
+    width: 215px;
+    height: 60px;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
 }
 
+.option-button:hover, .option-button:focus, .option-button:active{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+
+}
 .contacts-table {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-table {
-    width: 30%;
-    border-collapse: separate;
-    border-spacing: 5px 5px;
-
+.table-contacts {
+    border-collapse: collapse;
+    margin: 110px;
+    margin-left: -20px;
+    font-size: 1.2em;
+    min-width: 800px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-th, td {
-    border: none;
-    padding: 13px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.table-contacts thead tr {
+    background-color: #2e54a7;
+    color: white;
     text-align: left;
-    border-radius: 12px;
-}
-
-th {
-    background-color: #dadada;
-}
-
-td {
-    background-color: #dadada;
-
-}
-/* Необов'язково: стилізація для першого стовпчика (наприклад, назва властивості) */
-td:first-child {
     font-weight: bold;
 }
+
+.table-contacts th ,
+.table-contacts td {
+    padding: 12px 15px;
+
+}
+
+.table-contacts tbody tr {
+    border-bottom: 1px solid #4267b6;
+}
+
+.table-contacts tbody tr:nth-of-type(even) {
+    background-color:  rgb(76, 117, 206);
+}
+
+.table-contacts tbody tr:last-of-type {
+    border-bottom: 3px solid #2e54a7;
+}
+
+
+.table-profile {
+    border-collapse: collapse;
+    margin: 110px;
+    margin-left: -180px;
+    font-size: 1.2em;
+    min-width: 600px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table-profile thead tr {
+    background-color: #2e54a7;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.wtd {
+    color: white;
+}
+.table-profile th ,
+.table-profile td {
+    padding: 12px 15px;
+
+}
+
+.table-profile tbody tr {
+    border-bottom: 1px solid #4267b6;
+}
+
+.table-profile tbody tr:nth-of-type(even) {
+    background-color:  rgb(76, 117, 206);
+}
+
+.table-profile tbody tr:last-of-type {
+    border-bottom: 3px solid #2e54a7;
+}
+
+.profile-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .regdiv {
     display: flex;

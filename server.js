@@ -1,10 +1,11 @@
 const express = require('express');
-const response = require('./response');
+const response = require('./settings/response');
 const app = express();
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const usersController = require('./controller/usersController');
+const contactsController = require('./controller/contactsController');
 const passport = require('passport');
 
 app.use(cookieParser());
@@ -47,6 +48,8 @@ app.route('/reg').post(usersController.signup);
 
 app.route('/login').post(usersController.login);
 
+app.route('/phonebook/adding').post(contactsController.addContact);
+
 app.get('/logout', function (req, res) {
     res.clearCookie('Authorization');
     res.redirect('/login');
@@ -66,14 +69,22 @@ app.route('/phonebook').get(usersController.setTokenHeader, passport.authenticat
 
 app.route('/phonebook/profile').get(usersController.setTokenHeader, passport.authenticate('jwt', {session: false}), function (req, res) {
 
-    res.render('profile', {name: req.user.name, surname: req.user.surname, username: req.user.nickname, email: req.user.email, number: req.user.number});
+    res.render('profile', {name: req.user.name, surname: req.user.surname, username: req.user.nickname, email: req.user.email, number: req.user.number, id: req.user.id, role: req.user.role});
 });
 
 app.route('/phonebook/list').get(usersController.setTokenHeader, passport.authenticate('jwt', {session: false}), function (req, res) {
     res.render('list');
 });
 
+app.route('/phonebook/adding').get(usersController.setTokenHeader, passport.authenticate('jwt', {session: false}), function (req, res) {
+    res.render('adding', {id: req.user.id});
+});
+
 app.route('/userslist').get(passport.authenticate('jwt', {session: false}), usersController.showUsers);
+
+app.route('/contactslist').get(passport.authenticate('jwt', {session: false}), contactsController.showContacts);
+
+app.route('/deletecontact').delete(passport.authenticate('jwt', {session: false}), contactsController.deleteContact);
 //
 
 app.listen(3000, () => {

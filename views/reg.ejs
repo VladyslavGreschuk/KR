@@ -27,6 +27,11 @@
         </div>
         <div class="header-right">
            
+                <a href="/adminpanel">
+                     <button class="head-button">
+                         Admin Panel
+                     </button>
+                 </a>
                 <a href="/about">
                     <button class="head-button">
                         Про нас
@@ -50,7 +55,9 @@
     <div class="container">
         <h1>Реєстрація</h1>
         <form action="/reg" method="POST" class="regform">
+
             <div id="name-error" class="error-message"></div>
+            <input type="hidden" id="role" name="role" value="USER">
             <div class="input-group">
                 <input type="text" id="nickname" name="nickname" required placeholder="- ваш нікнейм -">
             </div>
