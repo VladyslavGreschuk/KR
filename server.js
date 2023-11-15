@@ -63,7 +63,6 @@ app.get('/about', function (req, res) {
 
 // secured
 app.route('/phonebook').get(usersController.setTokenHeader, passport.authenticate('jwt', {session: false}), function (req, res) {
-
     res.render('phonebook', {name: req.user.name, surname: req.user.surname});
 });
 
@@ -79,6 +78,17 @@ app.route('/phonebook/list').get(usersController.setTokenHeader, passport.authen
 app.route('/phonebook/adding').get(usersController.setTokenHeader, passport.authenticate('jwt', {session: false}), function (req, res) {
     res.render('adding', {id: req.user.id});
 });
+
+app.route('/adminpanel/users').get(passport.authenticate('jwt', {session: false}), function (req, res) {
+    res.render('adminpanel', {users: req.user.adminUsersData});
+});
+
+app.route('/adminpanel/contacts').get(passport.authenticate('jwt', {session: false}), function (req, res) {
+    res.render('adminpanel2', {allcontacts: req.user.adminContactsData});
+    console.log(req.user.adminContactsData);
+});
+
+
 
 app.route('/userslist').get(passport.authenticate('jwt', {session: false}), usersController.showUsers);
 

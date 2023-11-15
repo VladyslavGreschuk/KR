@@ -36,7 +36,29 @@ module.exports = passport => {
                                 } else {
                                     // Додаємо інформацію про контакти до об'єкту користувача
                                     user.contacts = contactRows;
+                                    // якщо користувач авторизований як адміністратор, він отримує загальну ін-цію про усіх користувачів та додані контакти у полях adminUserData і adminContactsData
+                                    if (user.role === 'ADMIN')
+                                    {
+                                        db.query("SELECT * FROM `users`", (adminError, adminRows, adminFields) => {
+                                            if (adminError) {
+                                                console.log(adminError);
+                                                done(adminError, null);
+                                            } else {
+                                                const admindata = adminRows;
+                                                user.adminUsersData = admindata;
+                                            }
+                                        });
 
+                                        db.query("SELECT *,  DATE_FORMAT(`date`, '%Y-%m-%d') AS formattedDate FROM `contacts`", (adminError, adminRows, adminFields) => {
+                                            if (adminError) {
+                                                console.log(adminError);
+                                                done(adminError, null);
+                                            } else {
+                                                const admindata = adminRows;
+                                                user.adminContactsData = admindata;
+                                            }
+                                        })
+                                    }
                                     db.query("SELECT COUNT(*) AS contactCount FROM contacts WHERE `user_id` = '" + user.id + "'", (contactError, result) => {
                                         if (contactError) {
                                             console.log(contactError);

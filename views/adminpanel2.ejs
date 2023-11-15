@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>List</title>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="/phonebook">
+                <button class="logo-button">
+                    Phonebook
+                </button>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="/adminpanel/users">
+                <button class="head-button">
+                    Admin Panel
+                </button>
+            </a>
+            <a href="/about">
+                <button class="head-button">
+                    Про нас
+                </button>
+            </a>
+            <a href="/login">
+                <button class="head-button">
+                    Вийти
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <div class="options-container">
+        <a href="/phonebook"><button class="option-button">Головна</button></a>
+        <a href="/phonebook/profile"><button class="option-button">Профіль</button></a>
+        <a href="/phonebook/list"><button class="option-button">Список контактів</button></a>
+        <a href="/phonebook/adding"><button class="option-button">Додати контакт</button></a>
+        <a href="/phonebook/options"><button class="option-button">Налаштування</button></a>
+    </div>
+
+    <div class="options-container">
+        <a href="/adminpanel/users"><button class="option-button" onclick="">Показати усіх користувачів</button></a>
+        <a href="/adminpanel/contacts"><button class="option-button" onclick="">Показати усі контакти</button></a>
+    </div>
+
+    <div class="contacts-table">
+        <table id="contactsTable" class="table-contacts">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ім'я</th>
+                    <th>Прізвище</th>
+                    <th>Email</th>
+                    <th>Номер</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allcontacts.forEach(contact => { %>
+                    <tr>
+                        <td><%= contact.id %></td>
+                        <td><%= contact.name %></td>
+                        <td><%= contact.surname %></td>
+                        <td><%= contact.email %></td>
+                        <td><%= contact.number %></td>
+                        <td><%= contact.formattedDate %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
